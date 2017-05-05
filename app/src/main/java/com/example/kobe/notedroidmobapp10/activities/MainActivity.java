@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         notitieAdapter = new NotitieAdapter(this, NoteLijstDAO.getInstance().getNotitieLijst());
         notitieListView.setAdapter(notitieAdapter);
 
+        NoteLijstDAO.getInstance().openConnection(this);
+
         btnNieuw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

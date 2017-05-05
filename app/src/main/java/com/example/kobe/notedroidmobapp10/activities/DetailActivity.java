@@ -45,14 +45,16 @@ public class DetailActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (etTitel.getText().toString().length() > 0) {
-                    NoteLijstDAO.addNotitie(etTitel.getText().toString(), etInhoud.getText().toString(), new Date(), new Date());
+                    NoteLijstDAO.addNotitie(new Note(getEtTitel(), getEtInhoud(), new Date(), new Date()));
                     detailIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(detailIntent);
                     //TODO entry wijzigen
                 } else {
                     Toast.makeText(getApplicationContext(), "Er is geen titel, zo niet eh!", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
 
@@ -75,4 +77,14 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
     }
+
+    public String getEtTitel() {
+       return etTitel.getText().toString();
+    }
+
+    public String getEtInhoud() {
+        return etInhoud.getText().toString();
+    }
+
+
 }

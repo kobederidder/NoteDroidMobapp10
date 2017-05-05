@@ -1,6 +1,9 @@
 package com.example.kobe.notedroidmobapp10.util;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,6 +17,7 @@ import com.example.kobe.notedroidmobapp10.models.Note;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by kobe on 5/05/2017.
@@ -26,22 +30,22 @@ public class NotitieAdapter extends BaseAdapter implements Filterable {
         return null;
     }
 
+    private ViewHolder holder;
+    private static List<Note> notitieLijst;
+    private Activity context;
+    private LayoutInflater layoutInflater;
+
     private class ViewHolder{
         public TextView tvTitel;
         public TextView tvAanmaakDatum;
     }
 
-    private ViewHolder holder;
-    private static ArrayList<Note> notitieLijst;
-    private Activity context;
+    public NotitieAdapter(Activity context , List<Note> notitieLijst) {
+        this.layoutInflater = context.getLayoutInflater();
 
-    public NotitieAdapter(Activity context , ArrayList<Note> notitieLijst) {
-        this.notitieLijst = notitieLijst;
-        this.context = context;
 
         Collections.sort(notitieLijst);
     }
-
 
     public static void sorteerTitelOplopend() {
         Collections.sort(notitieLijst, Note.sorteerTitelComp());
@@ -56,10 +60,9 @@ public class NotitieAdapter extends BaseAdapter implements Filterable {
     }
 
 
-
     @Override
     public int getCount() {
-        return notitieLijst.size();
+        return 0;
     }
 
     @Override

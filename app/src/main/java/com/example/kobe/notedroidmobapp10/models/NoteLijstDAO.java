@@ -4,15 +4,18 @@ package com.example.kobe.notedroidmobapp10.models;
  * Created by kobe on 5/05/2017.
  */
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.kobe.notedroidmobapp10.activities.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class NoteLijstDAO {
     private SQLHelper dbHelper;
-    private SQLiteDatabase db;
+    private static SQLiteDatabase db;
 
     private static NoteLijstDAO ourInstance = new NoteLijstDAO();
 
@@ -41,9 +44,20 @@ public class NoteLijstDAO {
 
     }
 
-    public static void addNotitie(String titel, String inhoud, Date aanmaakDatum, Date laatsteWijziging) {
+    public static void addNotitie(Note n) {
+        ContentValues cv = new ContentValues();
+        cv.put("COLUMN_TITEL", n.getTitel());
+        cv.put("COLUMN_INHOUD", n.getInhoud());
+        cv.put("COLUMN_DATUM_AANMAAK", new Date().toString());
+        cv.put("COLUMN_DATUM_AANGEPAST", new Date().toString());
+
+
+
+        db.insert("noteDroidDB", null, cv);
 
     }
+
+
 
     public ArrayList<Note> getNotitieLijst() {
         ArrayList<Note> notitieLijst = new ArrayList<>();
