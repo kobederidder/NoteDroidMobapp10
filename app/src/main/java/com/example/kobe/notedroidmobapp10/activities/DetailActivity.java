@@ -69,7 +69,7 @@ public class DetailActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO entry verwijderen
+
                 detailIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(detailIntent);
             }

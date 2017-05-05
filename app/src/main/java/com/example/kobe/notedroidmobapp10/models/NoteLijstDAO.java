@@ -54,4 +54,10 @@ public class NoteLijstDAO {
 
         return notitieLijst;
     }
+
+    public void delete(Note n)
+    {
+        int id = n.getId();
+        db.delete("notes", "_id =" + id, null);
+    }
 }
