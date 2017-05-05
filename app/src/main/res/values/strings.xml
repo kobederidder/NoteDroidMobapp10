@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">NoteDroidMobapp10</string>
+    <string name="tv_title_str">Titel</string>
+    <string name="et_notitie_str">note</string>
+    <string name="btn_cancel_string">cancel</string>
+    <string name="btn_save_string">save</string>
+    <string name="btn_delete_str">delete</string>
+    <string name="rb_naam_oplopend_str">oplopend</string>
+    <string name="rb_datum_oplopend_str">nieuwste eerst</string>
+    <string name="rb_datum_aflopend_str">oudste eerst</string>
+    <string name="tv_sorteeropties_str">sorteeropties</string>
 </resources>
+
